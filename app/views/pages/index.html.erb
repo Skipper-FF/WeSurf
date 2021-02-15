@@ -1,0 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?surf);">
+  <div class="container">
+    <h1>WeSurf</h1>
+    <p>anytime, anywhere</p>
+    <p>ICI : SEARCHBAR</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="cards">
+    <% @boards.each do |board| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?surfboard)">
+        <%= link_to board.name, board_path(board), class: "cocktail-name"%>
+      </div>
+    <% end %>
+  </div>
+</div>
