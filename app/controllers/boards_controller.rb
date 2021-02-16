@@ -1,4 +1,12 @@
 class BoardsController < ApplicationController
+  def index
+    @boards = Board.all
+  end
+
+  def show
+    @board = Board.find(params[:id])
+  end
+
   def new
     @board = Board.new
   end
@@ -12,12 +20,7 @@ class BoardsController < ApplicationController
     end
   end
 
-  def show
-    @board = Board.find(params[:id])
+  def board_params
+    params.require(:board).permit(:name, :description, :category, :price)
   end
-
-  def index
-    @boards = Board.all
-  end
-
 end
