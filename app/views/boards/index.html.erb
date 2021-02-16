@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?surf);">
 
-<% @restaurants.each do |restaurant| %>
-  <% if policy(restaurant).edit? %>
-    <%= link_to "Update", edit_restaurant_path(restaurant) %>
+<% @boards.each do |board| %>
+  <% if policy(board).edit? %>
+    <%= link_to "Update", edit_board_path(board) %>
   <% end %>
 <% end %>
 
