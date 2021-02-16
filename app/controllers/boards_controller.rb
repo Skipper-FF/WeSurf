@@ -15,4 +15,9 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
   end
+  
+  def index
+    @boards = Board.all
+  end
+  
 end
