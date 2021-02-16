@@ -33,7 +33,11 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   user = User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
 
-  Board.create!(name: name, description: description, category: category, price: price, user_id: user.id)
+  file = URI.open(image_url)
+
+  board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id)
+  board.photo.attach(io: file, filename: "surf")
+  board.save
 
 sleep(1)
 
