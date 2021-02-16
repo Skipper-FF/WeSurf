@@ -1,17 +1,44 @@
-require 'json'
 require 'open-uri'
+require 'nokogiri'
+require 'faker'
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
+puts "Destroying all instances"
 User.destroy_all
 Board.destroy_all
-Booking.destroy_all
 
-@user = User.create(email:"test@gmail.com", password: "123456")
-Board.create(user_id:@user.id, description:"The Duende model is an interpretation of a classic pig model originally created in the early 60’s. It is a playful board with a lot of volume around the stringer with a D fin, and foiled from the nose to the tail. It is only shaped in high density foam, allowing for weight and momentum.")
+design = 'el-duende'
+url = "https://www.naje-surfboards.net"
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+
+html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each do |a|
+  url_design = "https://www.naje-surfboards.net#{a.attribute('href')}"
+  html_file_design = open(url_design).read
+  html_doc_design = Nokogiri::HTML(html_file_design)
+
+  image_url = html_doc_design.at('.image-inset img').attribute('src').value
+
+  name = html_doc_design.at('.image-title p').text
+
+  description = html_doc_design.at('.image-subtitle p').text
+
+  category = ["longboard", "shortboard", "hybride", "fish", "gun", "foam", "mini malibu"].sample
+
+  price = rand(10..40)
+
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = Faker::Internet.email
+  password = "123456"
+
+  user = User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
+
+  Board.create!(name: name, description: description, category: category, price: price, user_id: user.id)
+end
+
+puts "#{User.all.length} users created"
+puts "#{Board.all.length} boards created"
+
+
+# board image to do after cloudinary setup
+# image_url = html_doc.at('.image-inset img').attribute('src').value
