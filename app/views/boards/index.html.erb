@@ -10,7 +10,7 @@
   <div class="cards">
     <% @boards.each do |board| %>
       <div class="card-trip">
-        <%= image_tag "https://source.unsplash.com/1600x900/?surfboard", alt: "SURFBOARD" %>
+        <%= cl_image_tag board.photo.key, alt: "SURFBOARD" %>
         <div class="card-trip-infos">
           <div>
             <%= link_to board.name, board_path(board)%>
