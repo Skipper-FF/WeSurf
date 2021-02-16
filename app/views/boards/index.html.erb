@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?surf);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/GMatv72vtEI/1600x900);">
   <div class="container">
     <h1>WeSurf</h1>
     <p>anytime, anywhere</p>
@@ -10,7 +10,7 @@
   <div class="cards">
     <% @boards.each do |board| %>
       <div class="card-trip">
-        <%= image_tag "https://source.unsplash.com/1600x900/?surfboard", alt: "SURFBOARD" %>
+        <%= cl_image_tag board.photo.key, alt: "SURFBOARD" %>
         <div class="card-trip-infos">
           <div>
             <% if policy(board).show? %>
