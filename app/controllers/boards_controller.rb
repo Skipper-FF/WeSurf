@@ -1,12 +1,11 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all
+    @boards = policy_scope(Board)
   end
 
   def show
     @board = Board.find(params[:id])
     authorize @board
-    
   end
 
   def new
@@ -15,6 +14,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    authorize @board
     if @board.save
       redirect_to board_path(@board)
     else
