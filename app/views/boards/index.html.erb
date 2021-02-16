@@ -1,4 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?surf);">
+<<<<<<< HEAD
 
 <% @boards.each do |board| %>
   <% if policy(board).edit? %>
@@ -6,6 +7,8 @@
   <% end %>
 <% end %>
 
+=======
+>>>>>>> master
   <div class="container">
     <h1>WeSurf</h1>
     <p>anytime, anywhere</p>
@@ -16,9 +19,18 @@
 <div class="container">
   <div class="cards">
     <% @boards.each do |board| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?surfboard)">
-        <%= link_to board.name, board_path(board)%>
+      <div class="card-trip">
+        <%= image_tag "https://source.unsplash.com/1600x900/?surfboard", alt: "SURFBOARD" %>
+        <div class="card-trip-infos">
+          <div>
+            <%= link_to board.name, board_path(board)%>
+            <h2> <%= board.description %> </h2>
+          </div>
+          <h2 class="card-trip-pricing"><%= board.price %>€</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+
