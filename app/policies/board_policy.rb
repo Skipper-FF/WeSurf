@@ -12,5 +12,12 @@ class BoardPolicy < ApplicationPolicy
   def show?
     true
   end
-  
+
+  def edit?
+    user == @record.user
+  end
+
+  def delete?
+    user == @record.user
+  end
 end

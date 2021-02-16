@@ -13,20 +13,18 @@
         <%= image_tag "https://source.unsplash.com/1600x900/?surfboard", alt: "SURFBOARD" %>
         <div class="card-trip-infos">
           <div>
+            <% if policy(board).show? %>
             <%= link_to board.name, board_path(board)%>
+            <% end %>
             <h2> <%= board.description %> </h2>
           </div>
           <h2 class="card-trip-pricing"><%= board.price %>€</h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
+      <% if policy(board).edit? %>
+        <%= link_to "Update", edit_board_path(board) %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-
-<% @boards.each do |board| %>
-  <% if policy(board).edit? %>
-    <%= link_to "Update", edit_board_path(board) %>
-  <% end %>
-<% end %>
