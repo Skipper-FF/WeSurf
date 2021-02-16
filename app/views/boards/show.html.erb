@@ -2,6 +2,12 @@
   <div class="container">
     <h1><%= @board.name %></h1>
     <p>Allez, un ptit <%= @board.name %> 🍑 sec!</p>
+
+    <h2><%= @board.category %></h2>
+
+    <h3><%= @board.description %></h3>
+
+
     <%= link_to "< Back", boards_path, class: "btn btn-ghost" %>
   </div>
 </div>
