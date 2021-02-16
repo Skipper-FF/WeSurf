@@ -3,8 +3,8 @@ require 'nokogiri'
 require 'faker'
 
 puts "Destroying all instances"
-User.destroy_all
 Board.destroy_all
+User.destroy_all
 
 design = 'el-duende'
 url = "https://www.naje-surfboards.net"
@@ -34,6 +34,9 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
   user = User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
 
   Board.create!(name: name, description: description, category: category, price: price, user_id: user.id)
+
+sleep(1)
+
 end
 
 puts "#{User.all.length} users created"
