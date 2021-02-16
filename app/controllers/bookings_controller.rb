@@ -10,14 +10,14 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @reservation = current_user.bookings.create(booking_params)
+    @booking = current_user.bookings.create(booking_params)
 
-    redirect_to @reservation.board, notice: "Your booking has been created..."
+    redirect_to @booking.board, notice: "Your booking has been created..."
   end
 
   private
 
-  def reservation_params
+  def booking_params
     params.require(booking).permit(:start_date, :end_date, :price, :total, :board_id)
   end
   
