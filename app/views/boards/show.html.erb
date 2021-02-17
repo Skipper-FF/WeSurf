@@ -7,6 +7,10 @@
 
     <h3><%= @board.description %></h3>
 
+      <% if policy(board).edit? %>
+        <%= link_to "Update", edit_board_path(board) %>
+      <% end %>
+    <% end %>
 
     <%= link_to "< Back", boards_path, class: "btn btn-ghost" %>
   </div>
