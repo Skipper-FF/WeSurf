@@ -38,9 +38,9 @@
 
 <div class="card-book">
   <div class="form-wrapper">
-    <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :from, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :to, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= simple_form_for [@board, @booking] do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.button :submit, "Book now", class: "btn" %>
     <% end %>
   </div>
