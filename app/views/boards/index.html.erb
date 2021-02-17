@@ -20,14 +20,18 @@
         <%= cl_image_tag board.photo.key, alt: "SURFBOARD" %>
         <div class="card-trip-infos">
           <div>
+            <% if policy(board).show? %>
             <h2><%= link_to board.name, board_path(board)%></h2>
+            <% end %>
             <p> <%= board.description %> </p>
           </div>
           <div class="card-trip-pricing"><%= board.price %>$<em> /day</em></div>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
+      <% if policy(board).edit? %>
+        <%= link_to "Update", edit_board_path(board) %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
