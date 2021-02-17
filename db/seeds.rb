@@ -38,8 +38,9 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
   board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id)
   board.photo.attach(io: file, filename: "surf")
   board.save
+  puts "board.save"
 
-sleep(1)
+sleep(50)
 
 end
 
