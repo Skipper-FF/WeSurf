@@ -8,7 +8,7 @@
     <h3><%= @board.description %></h3>
 
       <% if policy(@board).edit? %>
-        <%= link_to "Update", edit_board_path(board) %>
+        <%= link_to "Update", edit_board_path(@board) %>
       <% end %>
 
     <%= link_to "< Back", boards_path, class: "btn btn-ghost" %>
