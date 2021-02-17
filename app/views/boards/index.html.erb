@@ -30,7 +30,9 @@
         </div>
       </div>
       <% if policy(board).edit? %>
-        <%= link_to "Update", edit_board_path(board) %>
+        <%= link_to edit_board_path(board) do%>
+        <i class="fas fa-times"></i>
+        <% end %>
       <% end %>
     <% end %>
   </div>
