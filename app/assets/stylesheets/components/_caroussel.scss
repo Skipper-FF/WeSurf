@@ -1,0 +1,33 @@
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.carousel-inner .seed {
+  margin-top: -300px;
+}
+
+.tag i {
+    margin-bottom: 21px;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.container {
+  margin-bottom: 50px;
+}
