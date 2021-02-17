@@ -15,13 +15,26 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.bookings.create(booking_params)
-    redirect_to @booking.board, notice: "Your booking has been created..."
+    @board = Board.find(params[:board_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.board = @board
+    authorize @booking
+    if @booking.save
+      flash.alert = "You have booked this board"
+      redirect_to boards_path
+    else
+      render "boards/show"
+    end
   end
+
+  # def index
+  #   @bookings = policy_scope(Booking)
+  # end
 
   private
 
   def booking_params
-    params.require(booking).permit(:start_date, :end_date, :price, :board_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :price, :board_id)
   end
 end
