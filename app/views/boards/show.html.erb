@@ -1,16 +1,24 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?surf);">
   <div class="container">
     <h1><%= @board.name %></h1>
-    <p>Allez, un ptit <%= @board.name %> 🍑 sec!</p>
-
-    <h2><%= @board.category %></h2>
+    <p><%= @board.category %></p>
 
     <h3><%= @board.description %></h3>
 
       <% if policy(@board).edit? %>
-        <%= link_to "Update", edit_board_path(board) %>
+        <%= link_to "Update", edit_board_path(@board) %>
       <% end %>
 
     <%= link_to "< Back", boards_path, class: "btn btn-ghost" %>
+  </div>
+</div>
+
+<div class="card-book">
+  <div class="form-wrapper">
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :from, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :to, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Book now", class: "btn" %>
+    <% end %>
   </div>
 </div>
