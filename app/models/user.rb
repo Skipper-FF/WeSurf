@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :boards
   has_many :bookings, dependent: :destroy
+  has_one_attached :photo
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
