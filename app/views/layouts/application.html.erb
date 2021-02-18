@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<%= render 'shared/navbar' %>
   <head>
     <title>WeSurf</title>
     <%= csrf_meta_tags %>
@@ -13,6 +12,7 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/flashes' %>
   </body>
