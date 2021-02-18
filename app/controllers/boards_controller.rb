@@ -23,6 +23,10 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @booking  = Booking.new
     authorize @board
+    @markers = {
+        lat: @board.latitude,
+        lng: @board.longitude
+      }
   end
 
   def new
