@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def home
   end
 
-  after_action :verify_authorized, except: [:show, :index], unless: :skip_pundit?
+  after_action :verify_authorized, except: [:show, :index, :dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def configure_permitted_parameters

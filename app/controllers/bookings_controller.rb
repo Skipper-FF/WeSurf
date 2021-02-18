@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
     @booking.board = @board
     authorize @booking
     if @booking.save
-      flash.alert = "You have booked this board"
-      redirect_to boards_path
+      flash[:alert] = "Congrats! You have booked this board"
+      redirect_to dashboard_path
     else
       render "boards/show"
     end
