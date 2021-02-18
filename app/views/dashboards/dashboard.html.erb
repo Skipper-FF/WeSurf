@@ -1,2 +1,20 @@
-<h1>Dashboard</h1>
-<%# photo model price  %>
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <% if @user.bookings.size == 0 %>
+  <h2> You have no upcoming reservation(s)!</h2>
+  <p>"search for a board to rent over our collection"</p>>
+  <% else %>
+  <h3> You have an upcoming reservation 🏄 </h3>
+
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag booking.board.photo.key, alt: "SURFBOARD" %>
+      <div class="card-product-infos">
+        <h4><%= booking.board.name %></h4>
+        <p><%= booking.board.description %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+</div>
