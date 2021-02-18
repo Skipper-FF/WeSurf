@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'faker'
+require "yaml"
 
 puts "Destroying all instances"
 Board.destroy_all
@@ -24,6 +25,8 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   category = ["longboard", "shortboard", "hybride", "fish", "gun", "foam", "mini malibu"].sample
 
+  location = ["Biarritz", "Hossegor", "Lacanau"].sample
+
   price = rand(10..40)
 
   first_name = Faker::Name.first_name
@@ -35,12 +38,12 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   file = URI.open(image_url)
 
-  board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id)
+  board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id, location: location)
   board.photo.attach(io: file, filename: "surf")
   board.save
   puts "board.save"
 
-sleep(50)
+sleep(7)
 
 end
 
