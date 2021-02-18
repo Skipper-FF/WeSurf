@@ -1,7 +1,11 @@
 class BoardsController < ApplicationController
   def index
-    if params[:search][:query].present?
-      @boards = policy_scope(Board).near(params[:search][:query])
+    if params[:search]
+      if params[:search][:query].present?
+        @boards = policy_scope(Board).near(params[:search][:query])
+      else
+        @boards = policy_scope(Board)
+      end
     else
       @boards = policy_scope(Board)
     end
