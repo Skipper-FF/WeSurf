@@ -20,6 +20,14 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.board = @board
     authorize @booking
+
+    start_date = Date.parse(booking_params[:start_date])
+    end_date = Date.parse(booking_params[:end_date])
+    days = (end_date - start_date).to_i + 1
+
+    @booking.price = @board.price
+    @booking.save
+
     if @booking.save
       flash[:alert] = "Congrats! You have booked this board"
       redirect_to dashboard_path

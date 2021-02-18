@@ -4,6 +4,7 @@ require 'faker'
 require "yaml"
 
 puts "Destroying all instances"
+Booking.destroy_all
 Board.destroy_all
 User.destroy_all
 
@@ -35,6 +36,10 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
   password = "123456"
 
   user = User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
+
+  user_photo_url = "https://thispersondoesnotexist.com/image"
+  user_photo_file = URI.open(user_photo_url)
+  user.photo.attach(io: user_photo_file, filename: "user_photo")
 
   file = URI.open(image_url)
 
