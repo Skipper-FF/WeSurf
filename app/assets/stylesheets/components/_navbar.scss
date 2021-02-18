@@ -1,12 +1,21 @@
-h3 {
+.nav-item h3 {
   font-size: 32px;
   font-weight: bold;
+  color: white;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: lighter;
+  color: white;
 }
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(255,255,255,0);
-  z-index: 0;
+  background: white;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,4 +28,9 @@ h3 {
 
 #home-navbar {
   opacity: 1;
+}
+
+.nav-item {
+  align-items: center;
+  display: flex;
 }
