@@ -1,5 +1,7 @@
 <div class="home-video-wrapper">
   <%= video_tag "home_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video blur brightness"%>
-  <p class="line-1 anim-typewriter">Welcome to</p>
-  <h1 class="home"> <span>WeSurf</span><span>→</span></h1>
+  <!-- <p class="home">Welcome to</p> -->
+  <h1 class="home"> <span>WeSurf</span></h1>
+  <p class="home description">Rent a board <em>anytime</em>, <em>anywhere</em>, <br> and enjoy <em>surfing</em> for a day</p>
+  <%= link_to "Rent a board", boards_path, class: "btn" %>
 </div>
