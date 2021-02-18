@@ -9,6 +9,14 @@ class BoardsController < ApplicationController
     else
       @boards = policy_scope(Board)
     end
+
+    # the `geocoded` scope filters only boards with coordinates (latitude & longitude)
+    @markers = @boards.geocoded.map do |board|
+      {
+        lat: board.latitude,
+        lng: board.longitude
+      }
+    end
   end
 
   def show
