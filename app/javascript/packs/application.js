@@ -33,4 +33,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpicker();
+  document.addEventListener("click", (event) => {
+    console.log("test before")
+    if (document.querySelector("video")) {
+      console.log("test")
+      document.querySelector("video").play()
+    }
+  })
 });
