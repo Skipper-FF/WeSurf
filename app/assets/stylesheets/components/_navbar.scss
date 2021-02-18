@@ -5,7 +5,8 @@ h3 {
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(255,255,255,0);
+  z-index: -1;
 }
 
 .navbar-lewagon .navbar-collapse {
