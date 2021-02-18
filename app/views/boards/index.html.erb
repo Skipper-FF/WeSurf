@@ -22,10 +22,10 @@
             <% if policy(board).show? %>
             <h2><%= link_to board.name, board_path(board)%></h2>
             <% end %>
-            <p> <%= board.description %> </p>
+            <p> <%= board.category %> </p>
           </div>
           <div class="card-trip-pricing"><%= board.price %>$<em> /day</em></div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+           <%= cl_image_tag board.user.photo.key, class: "card-trip-user avatar-bordered" %>
         </div>
       </div>
     <% end %>
