@@ -27,7 +27,8 @@ class BoardsController < ApplicationController
     authorize @board
     @markers = {
       lat: @board.latitude,
-      lng: @board.longitude
+      lng: @board.longitude,
+      image_url: helpers.asset_url('surfing.png')
       }
   end
 
