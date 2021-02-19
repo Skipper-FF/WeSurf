@@ -1,17 +1,39 @@
-.navbar > h2 > a {
+.nav-title-link {
   font-size: 40px;
   font-weight: bold;
+  color: white !important;
+}
+
+.nav-title-link-black {
+  font-size: 40px;
+  font-weight: bold;
+  color: black !important;
+}
+
+.nav-title-link:hover {
   color: white;
 }
 
-.navbar > h2 {
+.nav-title-link:hover {
+  color: black;
+}
+
+.nav-title-link {
   margin: 0;
 }
 
-a.nav-link {
+.nav-link {
   font-size: 18px;
   font-weight: lighter;
   color: white !important;
+}
+
+.nav-link-black {
+  font-size: 18px;
+  font-weight: lighter;
+  color: black !important;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .navbar-lewagon {
