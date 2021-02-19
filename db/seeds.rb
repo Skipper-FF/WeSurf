@@ -26,7 +26,7 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   category = ["longboard", "shortboard", "hybride", "fish", "gun", "foam", "mini malibu"].sample
 
-  location = ["Biarritz", "Hossegor", "Lacanau"].sample
+  location = ["Biarritz", "Soorts-Hossegor", "Lacanau"].sample
 
   price = rand(10..40)
 

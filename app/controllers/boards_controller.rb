@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   def index
     if params[:search]
       if params[:search][:query].present?
-        @boards = policy_scope(Board).near(params[:search][:query])
+        @boards = policy_scope(Board).near(params[:search][:query], 5)
       else
         @boards = policy_scope(Board)
       end
@@ -14,18 +14,20 @@ class BoardsController < ApplicationController
     @markers = @boards.geocoded.map do |board|
       {
         lat: board.latitude,
-        lng: board.longitude
+        lng: board.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { board: board }),
+        image_url: helpers.asset_url('surfing.png')
       }
     end
   end
 
   def show
     @board = Board.find(params[:id])
-    @booking  = Booking.new
+    @booking = Booking.new
     authorize @board
     @markers = {
-        lat: @board.latitude,
-        lng: @board.longitude
+      lat: @board.latitude,
+      lng: @board.longitude
       }
   end
 
