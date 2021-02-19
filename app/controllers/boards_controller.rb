@@ -31,6 +31,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    authorize @board
   end
 
   def create
