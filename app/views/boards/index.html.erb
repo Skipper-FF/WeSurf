@@ -12,6 +12,12 @@
   </div>
 </div>
 
+<div class="create justify-content-center">
+  <%= link_to new_board_path do%>
+  <p class="btn-create"> <span>+&nbsp;</span><span id="span-color">add a new board</span></p>
+  <% end %>
+</div>
+
 <div class="container">
   <div class="cards">
     <% @boards.each do |board| %>

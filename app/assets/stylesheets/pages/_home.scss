@@ -14,7 +14,7 @@
 }
 
 .home-video-wrapper {
-  height: 67vh;
+  height: 77vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -57,13 +57,13 @@ p.home {
   color: white;
   font-size: 30px;
   position: absolute;
-  top: 37%;
+  top: 50%;
 }
 
 p.description {
   font-size: 18px;
   //font-style: italic;
-  top: 52vh;
+  top: 50.5vh;
   text-align: center;
   font-weight: lighter;
   line-height: 1.3;
@@ -85,4 +85,8 @@ p.description {
 .btn:hover {
   background-color: transparent;
   border: 1px solid #FFD336;
+}
+
+.btn-home:hover {
+  color: white;
 }

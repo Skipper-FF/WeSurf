@@ -1,2 +1,60 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.create {
+  margin: 30px auto;
+  text-align: center;
+  background-color: #FFD336;
+  padding: 24px;
+  transition: all .2s ease-in-out;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  line-height: 20px;
+}
+
+.create:hover {
+  background-color: black;
+  width: 500px;
+}
+
+.create p {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  letter-spacing: 0;
+  font-weight: 100;
+  color: black;
+}
+
+.create:hover p {
+  color: white;
+}
+
+p span {
+  display: inline-flex;
+}
+
+.create span:nth-child(even) {
+  overflow: hidden;
+  font-size: 20px;
+  letter-spacing: -1em;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.create:hover span:nth-child(even) {
+  letter-spacing: 0;
+  color: white;
+  opacity: 1;
+}
+
+#span-color {
+  color: black;
+  vertical-align: middle;
+}
+
+.create:hover #span-color {
+  color: white;
+}

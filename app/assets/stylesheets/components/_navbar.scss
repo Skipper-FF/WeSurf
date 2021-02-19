@@ -1,21 +1,29 @@
-.nav-item h3 {
-  font-size: 32px;
+.navbar > h2 > a {
+  font-size: 40px;
   font-weight: bold;
   color: white;
 }
 
-.nav-link {
+.navbar > h2 {
+  margin: 0;
+}
+
+a.nav-link {
   font-size: 18px;
   font-weight: lighter;
-  color: white;
+  color: white !important;
 }
 
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  z-index: 100;
+  z-index: 1000;
   position: fixed;
   width: 100%;
+}
+
+.navbar-lewagon-transparent {
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -33,4 +41,20 @@
 .nav-item {
   align-items: center;
   display: flex;
+}
+
+.dropdown-menu {
+  border-radius: 30px;
+}
+
+.dropdown-item {
+  font-weight: 200;
+  font-size: 13px;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  text-decoration: none;
+  background: transparent;
+  font-style: italic;
 }
