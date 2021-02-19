@@ -1,0 +1,8 @@
+<%= simple_form_for(@board) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category, collection: ["longboard", "shortboard", "hybride", "fish", "gun", "foam", "mini malibu"]%>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :location %>
+  <%= f.submit %>
+<% end %>
