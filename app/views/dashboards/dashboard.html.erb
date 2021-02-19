@@ -1,20 +1,23 @@
 <div class="container">
-  <h1>Dashboard</h1>
-
-  <% if @user.bookings.size == 0 %>
+<h1>Dashboard</h1>
+<% if @user.bookings.size == 0 %>
   <h2> You have no upcoming reservation(s)!</h2>
   <p>"search for a board to rent over our collection"</p>>
   <% else %>
   <h3> You have an upcoming reservation 🏄 </h3>
 
   <% @bookings.each do |booking| %>
-    <div class="card-product">
+    <div class="card-trip">
       <%= cl_image_tag booking.board.photo.key, alt: "SURFBOARD" %>
-      <div class="card-product-infos">
+    <div class="card-trip-infos">
+      <div>
         <h4><%= booking.board.name %></h4>
-        <p><%= booking.board.description %></p>
+        <P>From :<%= booking.start_date %></p>
+        <p>To :<%= booking.end_date %></p>
       </div>
-    </div>
-    <% end %>
-    <% end %>
+    <h7 class="card-trip-pricing">Total price: <%= booking.price * ((booking.end_date - booking.start_date).to_i + 1)%>$ </h7>
+    <%= cl_image_tag booking.board.user.photo.key, class: "card-trip-user avatar-bordered"%>
+  </div>
+  <% end %>
+  <% end %>
 </div>

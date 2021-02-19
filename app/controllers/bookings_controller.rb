@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
     days = (end_date - start_date).to_i + 1
 
     @booking.price = @board.price
-    @booking.save
 
     if @booking.save
       flash[:alert] = "Congrats! You have booked this board"
