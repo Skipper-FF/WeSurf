@@ -1,4 +1,4 @@
-<div style="<%= 'background: transparent' if params[:action] == 'home' || 'index' %>" class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div style="<%= 'background: transparent; color:black' if params[:action] == 'home' || params[:action] == 'index' %>" class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <h2 style="<%= 'opacity: 0' if params[:action] == 'home'%>" > <%= link_to WeSurf, root_path%> </h2>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
