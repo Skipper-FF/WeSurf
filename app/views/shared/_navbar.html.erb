@@ -1,11 +1,14 @@
-<div style="<%= 'background: transparent' if params[:action] == 'home' || params[:action] == 'index'%>" class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <h2 style="<%= 'opacity: 0' if params[:action] == 'home' %>" > <%= link_to WeSurf, root_path%> </h2>
+<div style="<%= 'background: transparent' if params[:action] == 'home' || params[:action] == 'index'%>" class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-transparent="<%= params[:action] == 'index'%>">
+  <h2 style="<%= 'opacity: 0' if params[:action] == 'home' %>" > <%= link_to WeSurf, root_path, class: params[:action] == 'home' ? "nav-title-link" : "nav-title-link-black"%> </h2>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li style="<%= 'opacity: 0' if params[:action] == 'home'%>" class="nav-item active">
-          <%= link_to "dashboard", dashboard_path, class: "nav-link" %>
+         <li style="<%= 'opacity: 0' if params[:action] == 'home'%>"  class="nav-item active">
+          <div><%= link_to "boards", boards_path, class: params[:action] == 'home' ? "nav-link" : "nav-link-black" %></div>
+        </li>
+        <li style="<%= 'opacity: 0' if params[:action] == 'home'%>"  class="nav-item active">
+          <%= link_to "dashboard", dashboard_path, class: params[:action] == 'home' ? "nav-link" : "nav-link-black" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -21,5 +24,3 @@
     </ul>
   </div>
 </div>
-
-

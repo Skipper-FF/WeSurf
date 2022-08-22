@@ -26,6 +26,12 @@ require("channels")
 import "bootstrap";
 import {initFlatpicker} from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initNavbarOnScroll } from '../components/init_navbar_on_scroll';
+import { initTyped } from '../plugins/init_typed';
+
+
+
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,8 +39,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initTyped();
   initFlatpicker();
   initMapbox();
+  initNavbarOnScroll();
   document.addEventListener("click", (event) => {
     console.log("test before")
     if (document.querySelector("video")) {

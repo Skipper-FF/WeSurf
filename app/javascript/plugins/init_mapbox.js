@@ -25,7 +25,6 @@ const initMapbox = () => {
         element.style.backgroundSize = 'contain';
         element.style.width = '30px';
         element.style.height = '30px';
-      console.log(marker.image_url);
         // Pass the element as an argument to the new marker
         new mapboxgl.Marker(element)
           .setLngLat([marker.lng, marker.lat])
@@ -39,9 +38,20 @@ const initMapbox = () => {
         };
         fitMapToMarkers(map, markers);
       } else {
-        new mapboxgl.Marker()
+        let element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('${markers.image_url}')`;
+        console.log(markers.image_url);
+        element.style.backgroundSize = 'contain';
+        element.style.width = '30px';
+        element.style.height = '30px';
+        console.log(element);
+        new mapboxgl.Marker(element)
         .setLngLat([markers.lng, markers.lat])
         .addTo(map);
+        const bounds = new mapboxgl.LngLatBounds();
+        bounds.extend([ markers.lng, markers.lat ]);
+        map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 });
       };
     };
 };

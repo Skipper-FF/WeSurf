@@ -13,7 +13,10 @@ url = "https://www.naje-surfboards.net"
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 
+@pick = 0
+
 html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each do |a|
+
   url_design = "https://www.naje-surfboards.net#{a.attribute('href')}"
   html_file_design = open(url_design).read
   html_doc_design = Nokogiri::HTML(html_file_design)
@@ -26,7 +29,7 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   category = ["longboard", "shortboard", "hybride", "fish", "gun", "foam", "mini malibu"].sample
 
-  location = ["Biarritz", "Soorts-Hossegor", "Lacanau"].sample
+  location = ["Biarritz", "Soorts-Hossegor", "Lacanau"]
 
   price = rand(10..40)
 
@@ -43,13 +46,13 @@ html_doc.css('li.folder-collection.folder div.subnav li.page-collection a').each
 
   file = URI.open(image_url)
 
-  board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id, location: location)
+  board = Board.new(name: name, description: description, category: category, price: price, user_id: user.id, location: location[@pick])
   board.photo.attach(io: file, filename: "surf")
   board.save
   puts "board.save"
 
-sleep(7)
-
+  @pick == 2 ? @pick = 0 : @pick += 1
+  sleep(7)
 end
 
 puts "#{User.all.length} users created"

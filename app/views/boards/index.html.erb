@@ -29,8 +29,7 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= board.name%></h2>
-            <hr>
-            <p> <%= board.category %> </p>
+            <p> <%= board.category %> in <%= board.location %></p>
           </div>
           <div class="card-trip-pricing"><%= board.price %>$<em> /day</em></div>
            <%= cl_image_tag board.user.photo.key, class: "card-trip-user avatar-bordered"%>
